@@ -39,15 +39,18 @@ const MORSE_TABLE = {
 
 function decode(expr) {
     // write your solution here
-  return morseCode
-             .split("   ") // get word code 3 spaces apart
-             .map(word => word
-                           .split(" ") // get character code 1 spaces apart
-                           .map(character => MORSE_CODE[character]) // decode Morse code character
-                           .join('')
-              )
-              .join(' ') // add spaces between words 
-              .trim()
+   outPut = "";
+
+    for (var i = 0; i < morseCode.split(" ").length; i++) {
+        if (i === "   ") {
+            outPut += " ";
+        } 
+        else {
+            outPut += MORSE_CODE[morseCode.split(" ")[i]];
+        }
+
+    }
+    return outPut;
 }
 
 module.exports = {
